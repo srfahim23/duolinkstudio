@@ -14,41 +14,73 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
     }
   </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-[#020617] via-[#020617] to-[#0F172A] text-slate-200">
 
-  <!-- 🌐 Header -->
-  <header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-7xl">
-    <nav class="flex items-center justify-between px-6 py-4 rounded-2xl
-      bg-white/5 backdrop-blur-xl border border-white/10 shadow-lg">
+<header class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-7xl">
+  <nav
+    class="flex items-center justify-between px-5 py-4 rounded-2xl
+    bg-white/5 backdrop-blur-xl border border-white/10 shadow-lg">
 
-      <!-- Logo -->
-      <div class="text-xl font-bold tracking-wide text-white">
-        DuoLink<span class="text-sky-400">Studio</span>
-      </div>
+    <!-- Logo -->
+    <div class="text-xl font-bold tracking-wide text-white whitespace-nowrap">
+      DuoLink<span class="text-sky-400">Studio</span>
+    </div>
 
-      <!-- Menu -->
-      <ul class="hidden md:flex items-center gap-8 text-sm text-slate-300">
-        <li class="hover:text-white transition">Home</li>
-        <li class="hover:text-white transition">Services</li>
-        <li class="hover:text-white transition">Work</li>
-        <li class="hover:text-white transition">Contact</li>
-      </ul>
+    <!-- Desktop Menu -->
+    <ul class="hidden lg:flex items-center gap-8 text-sm text-slate-300">
+      <li class="hover:text-white transition cursor-pointer"><a href="#hero"></a>Home</li>
+      <li class="hover:text-white transition cursor-pointer">Services</li>
+      <li class="hover:text-white transition cursor-pointer">Work</li>
+      <li class="hover:text-white transition cursor-pointer">Contact</li>
+    </ul>
 
-      <!-- CTA -->
-      <button class="px-5 py-2 rounded-full text-sm font-medium
+    <!-- Right Side -->
+    <div class="flex items-center gap-3 flex-shrink-0">
+      <!-- CTA (desktop only) -->
+      <button
+        class="hidden lg:inline-flex px-5 py-2 rounded-full text-sm font-medium
         bg-gradient-to-r from-sky-500 to-blue-600 text-white
         hover:shadow-[0_0_30px_rgba(56,189,248,0.5)]
         transition">
         Get Started
       </button>
-    </nav>
-  </header>
+
+      <!-- Hamburger (ALL small devices) -->
+      <button
+        onclick="document.getElementById('mobileMenu').classList.toggle('hidden')"
+        class="inline-flex lg:hidden text-white text-2xl leading-none flex-shrink-0">
+        ☰
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobileMenu"
+    class="hidden mt-3 rounded-2xl bg-white/5 backdrop-blur-xl
+    border border-white/10 shadow-lg p-6 lg:hidden">
+    <ul class="flex flex-col gap-4 text-slate-300 text-sm">
+      <li class="hover:text-white transition">Home</li>
+      <li class="hover:text-white transition">Services</li>
+      <li class="hover:text-white transition">Work</li>
+      <li class="hover:text-white transition">Contact</li>
+
+      <button
+        class="mt-4 px-5 py-2 rounded-full text-sm font-medium
+        bg-gradient-to-r from-sky-500 to-blue-600 text-white">
+        Get Started
+      </button>
+    </ul>
+  </div>
+</header>
+
 
   <!-- 🚀 Hero Section -->
-  <section class="relative flex items-center justify-center min-h-screen px-6">
+  <section id="hero" class="relative flex items-center justify-center min-h-screen px-6">
     
     <!-- Glow Orb -->
     <div class="absolute -top-32 w-[500px] h-[500px] rounded-full 
