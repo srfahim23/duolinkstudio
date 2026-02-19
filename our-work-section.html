@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shabip Stack | Modern Portfolio</title>
+    <title>Shabip Stack | Exclusive Projects</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -22,12 +22,12 @@ body {
 }
 
 .projects-area {
-    padding: 100px 5%;
+    padding: 80px 5%;
     text-align: center;
 }
 
 .main-title {
-    font-size: 3rem;
+    font-size: 42px;
     color: var(--dark);
     margin-bottom: 40px;
 }
@@ -36,17 +36,17 @@ body {
     color: var(--primary);
 }
 
-/* Tabs Styling */
+/* Tabs */
 .tab-container {
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     flex-wrap: wrap;
 }
 
 .tab-btn {
-    padding: 12px 30px;
+    padding: 12px 28px;
     border: 2px solid #e2e8f0;
     background: white;
     border-radius: 50px;
@@ -67,7 +67,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 30px;
-    max-width: 1250px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -94,7 +94,7 @@ body {
 
 .img-box {
     width: 100%;
-    height: 240px;
+    height: 230px;
     overflow: hidden;
 }
 
@@ -117,28 +117,28 @@ body {
 .badge {
     background: rgba(255, 127, 39, 0.1);
     color: var(--primary);
-    padding: 5px 14px;
-    border-radius: 8px;
-    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
     display: inline-block;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .info-box h3 {
     margin: 0;
-    font-size: 22px;
+    font-size: 20px;
     color: var(--dark);
 }
 
 /* Explore More Button */
 .load-more-container {
-    margin-top: 60px;
+    margin-top: 50px;
 }
 
 .explore-btn {
-    padding: 16px 45px;
+    padding: 15px 40px;
     background: transparent;
     color: var(--primary);
     border: 2px solid var(--primary);
@@ -152,13 +152,13 @@ body {
 .explore-btn:hover {
     background: var(--primary);
     color: white;
-    box-shadow: 0 12px 24px rgba(255, 127, 39, 0.3);
+    box-shadow: 0 10px 20px rgba(255, 127, 39, 0.3);
 }
 
 .hidden { display: none; }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
     </style>
@@ -174,6 +174,7 @@ body {
             <button class="tab-btn" onclick="filterProjects('website', this)">Websites</button>
             <button class="tab-btn" onclick="filterProjects('application', this)">Applications</button>
             <button class="tab-btn" onclick="filterProjects('software', this)">Softwares</button>
+            <button class="tab-btn" onclick="filterProjects('marketing', this)">Marketing</button>
         </div>
 
         <div id="project-grid" class="project-grid">
@@ -188,29 +189,39 @@ body {
 <script src="script.js"></script>
 
 <script>
-// আপনার ২০টি প্রজেক্ট ডাটা
-const projects = [
-    { title: "Spokane Adult Homes", cat: "website", tag: "Properties", img: "https://picsum.photos/400/300?random=1", url: "#" },
-    { title: "Rebooster Marketplace", cat: "website", tag: "eCommerce", img: "https://picsum.photos/400/300?random=2", url: "#" },
-    { title: "Construction Pro", cat: "website", tag: "Industrial", img: "https://picsum.photos/400/300?random=3", url: "#" },
-    { title: "Crypto Tracker", cat: "website", tag: "Blockchain", img: "https://picsum.photos/400/300?random=4", url: "#" },
-    { title: "BB Blog Portal", cat: "website", tag: "Media", img: "https://picsum.photos/400/300?random=5", url: "#" },
-    { title: "Luxury Hotel Site", cat: "website", tag: "Travel", img: "https://picsum.photos/400/300?random=6", url: "#" },
-    // বাকি প্রজেক্টগুলো এখানে... (মোট ২০টি)
-    { title: "Sklepigo App", cat: "application", tag: "Retail", img: "https://picsum.photos/400/300?random=7", url: "#" },
-    { title: "Premium Food Delivery", cat: "application", tag: "Fitness", img: "https://picsum.photos/400/300?random=8", url: "#" },
-    { title: "Ticketly Pro", cat: "application", tag: "Events", img: "https://picsum.photos/400/300?random=9", url: "#" },
-    { title: "Health Buddy", cat: "application", tag: "Medical", img: "https://picsum.photos/400/300?random=10", url: "#" },
-    { title: "Task Manager", cat: "application", tag: "Productivity", img: "https://picsum.photos/400/300?random=11", url: "#" },
-    { title: "Social Connect", cat: "application", tag: "Social", img: "https://picsum.photos/400/300?random=12", url: "#" },
-    { title: "FileStreamr Cloud", cat: "software", tag: "SaaS", img: "https://picsum.photos/400/300?random=13", url: "#" },
-    { title: "SpendWish CRM", cat: "software", tag: "Fintech", img: "https://picsum.photos/400/300?random=14", url: "#" },
-    { title: "FleetEye Logistics", cat: "software", tag: "Tracking", img: "https://picsum.photos/400/300?random=15", url: "#" },
-    { title: "Secure Guard AI", cat: "software", tag: "Security", img: "https://picsum.photos/400/300?random=16", url: "#" },
-    { title: "ERP Business Solution", cat: "software", tag: "Enterprise", img: "https://picsum.photos/400/300?random=17", url: "#" },
-    { title: "AI Stock Bot", cat: "software", tag: "Automation", img: "https://picsum.photos/400/300?random=18", url: "#" },
-    { title: "Inventory Master", cat: "software", tag: "Management", img: "https://picsum.photos/400/300?random=19", url: "#" },
-    { title: "Portfolio Pro", cat: "website", tag: "Personal", img: "https://picsum.photos/400/300?random=20", url: "#" }
+    const projects = [
+    // Websites (8)
+    { title: "Spokane Adult Homes", cat: "website", tag: "Real Estate", img: "https://picsum.photos/400/300?random=1", url: "#" },
+    { title: "Rebooster Tech", cat: "website", tag: "Marketplace", img: "https://picsum.photos/400/300?random=2", url: "#" },
+    { title: "Industrial Pro", cat: "website", tag: "Construction", img: "https://picsum.photos/400/300?random=3", url: "#" },
+    { title: "Crypto Hub", cat: "website", tag: "Blockchain", img: "https://picsum.photos/400/300?random=4", url: "#" },
+    { title: "Modern Blog", cat: "website", tag: "Media", img: "https://picsum.photos/400/300?random=5", url: "#" },
+    { title: "Bike Shop", cat: "website", tag: "eCommerce", img: "https://picsum.photos/400/300?random=6", url: "#" },
+    { title: "Agency Portfolio", cat: "website", tag: "Creative", img: "https://picsum.photos/400/300?random=7", url: "#" },
+    { title: "Hotel Booking", cat: "website", tag: "Travel", img: "https://picsum.photos/400/300?random=8", url: "#" },
+
+    // Applications (6)
+    { title: "Sklepigo Mobile", cat: "application", tag: "Retail", img: "https://picsum.photos/400/300?random=9", url: "#" },
+    { title: "Premium Food Delivery", cat: "application", tag: "Food", img: "https://picsum.photos/400/300?random=10", url: "#" },
+    { title: "Ticketly Pro", cat: "application", tag: "Events", img: "https://picsum.photos/400/300?random=11", url: "#" },
+    { title: "Health Buddy", cat: "application", tag: "Medical", img: "https://picsum.photos/400/300?random=12", url: "#" },
+    { title: "Task Master", cat: "application", tag: "SaaS", img: "https://picsum.photos/400/300?random=13", url: "#" },
+    { title: "Chat Sphere", cat: "application", tag: "Social", img: "https://picsum.photos/400/300?random=14", url: "#" },
+
+    // Marketing (5)
+    { title: "SEO Campaign: TechCorp", cat: "marketing", tag: "SEO & SEM", img: "https://picsum.photos/400/300?random=21", url: "#" },
+    { title: "Social Media Growth", cat: "marketing", tag: "SMM", img: "https://picsum.photos/400/300?random=22", url: "#" },
+    { title: "Email Marketing Pro", cat: "marketing", tag: "Lead Gen", img: "https://picsum.photos/400/300?random=23", url: "#" },
+    { title: "Brand Identity", cat: "marketing", tag: "Branding", img: "https://picsum.photos/400/300?random=24", url: "#" },
+    { title: "AdWords Optimization", cat: "marketing", tag: "Ads", img: "https://picsum.photos/400/300?random=25", url: "#" },
+
+    // Software (6)
+    { title: "FileStreamr Cloud", cat: "software", tag: "Cloud", img: "https://picsum.photos/400/300?random=15", url: "#" },
+    { title: "SpendWish CRM", cat: "software", tag: "Fintech", img: "https://picsum.photos/400/300?random=16", url: "#" },
+    { title: "FleetEye Tracker", cat: "software", tag: "Logistics", img: "https://picsum.photos/400/300?random=17", url: "#" },
+    { title: "Secure Guard AI", cat: "software", tag: "Security", img: "https://picsum.photos/400/300?random=18", url: "#" },
+    { title: "ERP Solution", cat: "software", tag: "Enterprise", img: "https://picsum.photos/400/300?random=19", url: "#" },
+    { title: "AI Stock Bot", cat: "software", tag: "Automation", img: "https://picsum.photos/400/300?random=20", url: "#" }
 ];
 
 let currentFilter = 'all';
@@ -219,13 +230,11 @@ let isFullLoaded = false;
 
 function filterProjects(category, btnElement) {
     currentFilter = category;
-    isFullLoaded = false; // নতুন ক্যাটাগরি সিলেক্ট করলে আবার লিমিট সেট হবে
+    isFullLoaded = false; 
     
-    // Tab active color fix
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
     if(btnElement) btnElement.classList.add('active');
 
-    // ক্যাটাগরি চেঞ্জ করলে গ্রিড খালি করে প্রথম ৬টি দেখাবে
     const grid = document.getElementById('project-grid');
     grid.innerHTML = ''; 
     
@@ -237,10 +246,7 @@ function filterProjects(category, btnElement) {
 }
 
 function showAllProjects() {
-    const grid = document.getElementById('project-grid');
     const filteredData = currentFilter === 'all' ? projects : projects.filter(p => p.cat === currentFilter);
-    
-    // শুধু বাকি প্রজেক্টগুলো (৭ নম্বর থেকে শেষ পর্যন্ত) বের করা
     const remainingData = filteredData.slice(initialLimit);
     
     appendCards(remainingData);
@@ -264,7 +270,6 @@ function appendCards(dataList) {
         </a>
     `).join('');
     
-    // এটি আগের কার্ডগুলো রেখে নতুনগুলো শেষে যোগ করবে
     grid.insertAdjacentHTML('beforeend', htmlString);
 }
 
@@ -277,7 +282,6 @@ function toggleButton(totalCount) {
     }
 }
 
-// Default Load
 window.onload = () => {
     filterProjects('all', document.getElementById('default-tab'));
 };
